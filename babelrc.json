@@ -1,0 +1,60 @@
+// Plugins run before Presets
+// Plugin ordering is first to last
+// Preset ordering is reversed (last to first)
+
+
+{
+  "assumptions": {},
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+        "absoluteRuntime": false,
+        "helpers": true,
+        "regenerator": true,
+        "version": "^7.18.6"
+    }]
+  ],
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": [
+        "defaults",
+        "not IE 11"
+      ],
+      "bugfixes": false,
+      "spec": false,
+      "loose": false,
+      "modules": "auto",
+      "debug": false,
+      "include": [],
+      "exclude": [],
+      "useBuiltIns": "entry",
+      "corejs": {
+        "version": "^3.23",
+        "proposals": true
+      },
+      "forceAllTransforms": false,
+      "shippedProposals": false
+    }],
+    ["@babel/preset-react", {
+      "runtime": "automatic",
+      "development": false,
+      "importsource": "react",
+      "throwIfNamespace": true,
+      "pure": true,
+      // "pragma": "React.createElement",
+      // "pragmaFrag": "React.Fragment",
+      "useBuiltIns": false,
+      "useSpread": false
+    }],
+    ["@babel/preset-typescript", {
+      "isTSX": true,
+      "jsxPragma": "React",
+      "jsxPragmaFrag": "React.Fragment",
+      "allExtensions": true,
+      "allowNamespaces": true,
+      "allowDeclareFields": false,
+      "disallowAmbiguousJSXLike": true,
+      "onlyRemoveTypeImports": true,
+      "optimizeConstEnums": true
+    }]
+  ]
+}
